@@ -8,7 +8,7 @@ function Intro() {
     useEffect(() =>{
         let ID = setTimeout(()=>{
             navigate('Home')
-        }, 4000)
+        }, 5000)
 
         return(()=> {
             clearTimeout(ID)

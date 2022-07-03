@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from './Components/Header';
+import SearchBar from './Components/SearchBar';
 
 function Home(props) {
     return (
-        <div>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <Header/>
-           Home 
+            <SearchBar/>
         </div>
     );
 }

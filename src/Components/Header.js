@@ -1,14 +1,15 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Header.css'
 import { ReactComponent as Logo} from '../Assets/Logo.svg';
 
 function Header() {
-    const time = useRef( new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }));
+    const [time, setTime] = useState( new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }));
 
     useEffect(() =>{
        let ID =  setInterval(()=>{
-            time.current = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-        }, 5000)
+            setTime(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }));
+        }, 1000);
+
         return(() => {
             clearInterval(ID)
         })
@@ -21,7 +22,7 @@ function Header() {
                 <h1>Urban Dictionary</h1>
             </div>
             <div className='TimeDisplay'>
-                <span>{time.current.toLocaleLowerCase()}</span>
+                <span>{time.toLocaleLowerCase()}</span>
             </div>
         </div>
     );

@@ -1,0 +1,57 @@
+.SearchBar {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;                              
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 45px;
+    background-color: #F3F5F7;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+.BackgroundPadding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: 0 12px 0 5px;
+    background-color: white;
+    border-radius: 50%;
+}
+.SearchButton {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    width: fit-content;
+    height: 37px;
+    padding-left: 8px;
+    padding-right: 12px;
+}
+
+.SearchButton > span {
+    margin-left: 6px;
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+.SearchInput {
+    user-select: none; 
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    width: 400px;
+    color: rgba(0,0,0, 0.7);
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #F3F5F7;
+    border: none;
+}
