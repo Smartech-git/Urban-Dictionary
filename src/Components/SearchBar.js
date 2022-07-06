@@ -4,13 +4,26 @@ import {ReactComponent as WordLogo} from '../Assets/Microsoft-word-logo.svg';
 import {ReactComponent as TextSearch} from '../Assets/Text-search.svg';
 import Ripples from 'react-ripples';
 import { getWordContents } from '../APIs';
-        
+import {useStateValue} from '../StateProvider';
+import {actionTypes} from '../Reducer'
+
 
 function SearchBar(props) {
-    
-     useEffect(() => {
-        getWordContents("great")
-     })
+    const [state, dispatch] = useStateValue();
+
+    useEffect(() => {
+        getWordContents('emeka')
+        .then((res) => {
+            const action = {
+                type: actionTypes.setWordContent,
+                wordContents: res
+            }
+            console.log(res)    
+            dispatch(action);
+        })
+        .catch((err)=> console.log(err))
+        // console.log(state)
+    },[])
 
     return (
         <div className="SearchBar">
