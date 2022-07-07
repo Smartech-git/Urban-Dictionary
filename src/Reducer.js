@@ -14,21 +14,34 @@ export const initialState = {
         word: "great",
         written_on: "2006-10-20T03:20:05.000Z"
       }
-   ]
+   ],
+   newContent: false,
+   responseEmpty: false,
+   loading: false
 }
 
 export const actionTypes = {
-   setWordContent: "SETWORDCONTENT"
+   setWordContent: "SETWORDCONTENT",
+   setLoading: "SETLOADING"
 }
 
 const reducer = (state, action) => {
+    console.log(state);
     switch (action.type) {
         case actionTypes.setWordContent:
             return {
                 ...state,
-                wordContents : action.wordContents
+                wordContents : action.wordContents,
+                newContent: !state.newContent,
+                loading: false,
+                responseEmpty: action.wordContents.length === 0 ? true : false
             };
-                  
+
+        case actionTypes.setLoading:
+        return {
+            ...state,
+             loading: action.loading
+        };        
         default: 
             return state;
     }

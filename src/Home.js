@@ -2,13 +2,29 @@ import React from 'react';
 import Header from './Components/Header';
 import SearchBar from './Components/SearchBar';
 import Content from './Components/Content';
+import NetworkErrorDisplay from './NetworkErrorDisplay';
+import { useStateValue } from './StateProvider';
+import LoadingDisplay from './LoadingDisplay';
 
 function Home(props) {
+    const [state, dispatch] = useStateValue();
+
     return (
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh'}}>
             <Header/>
             <SearchBar/>
-            <Content/>
+            {
+                state.wordContents === 'Network Error'|'timeout exceeded' && state.loading === false ? (
+                   <NetworkErrorDisplay/> 
+                ) : (
+                    state.loading ? (
+                        <LoadingDisplay/>
+                    ) : (
+                        <Content/>
+                    )
+                          
+                )
+            }
         </div>
     );
 }

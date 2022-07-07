@@ -115,7 +115,7 @@
     padding-left: 60px;
     box-sizing: border-box;
 }
-.WordDefinitionContent p {
+.WordDefinitionContent p{
     font-family: 'Mochiy Pop One';
     font-style: normal;
     font-weight: 400;
@@ -125,6 +125,18 @@
     white-space: pre-line;
     white-space: pre-wrap;
     color: rgba(0, 0, 0, 0.8);
+}
+.WordDefinitionContent span {
+    font-size: 16px;
+}
+.ref {
+    color: #8B3DFF;
+    padding: 0 4px 4px 4px;
+    font-size: 16px;
+}
+.ref:hover {
+    border-radius: 50px;
+    background-color: #E5E5E5;
 }
 .WordExample {
     margin-top: 6px;
