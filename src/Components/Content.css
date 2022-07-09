@@ -50,34 +50,6 @@
     font-size: 24px;
     color: #8B3DFF;
 }
-.AudioBtn {
-    height: 36px;
-    width: 95px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 50px;
-    margin-left: 20px;
-    background-color: #F3F5F7;
-    box-sizing: border-box;
-    padding: 0 10px 0 5px;
-}
-.PlayPausePadding {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 26px;
-    height: 26px;
-    background-color: white;
-    border-radius: 50%;
-    cursor: pointer;
-}
 .HeaderRight {
     display: flex;
     align-items: center;
@@ -131,7 +103,7 @@
 }
 .ref {
     color: #8B3DFF;
-    padding: 0 4px 4px 4px;
+    padding: 0 5px 4px 5px;
     font-size: 16px;
 }
 .ref:hover {

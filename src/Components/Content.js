@@ -1,31 +1,38 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ReactComponent as SoundWave } from '../Assets/SoundWave.svg';
-import { ReactComponent as Play} from '../Assets/Play.svg';
-import { ReactComponent as Pause} from '../Assets/Pause.svg';
+import React, {useEffect, useRef, useState } from 'react';
 import { ReactComponent as ThumbsUp } from '../Assets/ThumbsUp.svg';
 import { ReactComponent as ThumbsDown } from '../Assets/ThumbsDown.svg';
 import { ReactComponent as LineDirect } from '../Assets/LineDirect.svg'
 import { ReactComponent as Write } from '../Assets/Write.svg';
 import { ReactComponent as Calender } from '../Assets/Calender.svg';
-import { getWordContents } from '../APIs';
+import { getWordContents} from '../APIs';
 import NotFoundDisplay from '../NotFoundDisplay';
 import LoadingDisplay from '../LoadingDisplay';
+import AudioBtn from './AudioBtn';
 import { actionTypes } from '../Reducer';
 import reactStringReplace from 'react-string-replace';
-import Ripples from 'react-ripples';
 import { useStateValue } from '../StateProvider';
+import { textValue, searchedText} from './SearchBar';
 import "./Content.css"
 
+export let setAudio;
+let textCon= '';
 
 function Contents(props) {
-    const [audioState, setAudioState] = useState(true);
     const [state, dispatch] = useStateValue();
+    const [audioBtn, setAudioBtn] = useState();
     const contentsRef = useRef();
+    
+    setAudio = setAudioBtn;
 
-    useEffect(()=> {document.getElementsByClassName(contentsRef.current.className)[0].scrollTop = 0;
+    useEffect(()=> { document.getElementsByClassName(contentsRef.current.className)[0].scrollTop = 0;
     },[state.newContent]);
 
+
     const getWordMeaning = (text) => {
+
+        textValue(text)
+        textCon = text
+        console.log(textCon);
 
         const action = {
             type: actionTypes.setLoading,
@@ -35,14 +42,11 @@ function Contents(props) {
 
         getWordContents(text)
         .then((res) => {
-
             const action = {
                 type: actionTypes.setWordContent,
                 wordContents: res
             }   
             dispatch(action);
-
-            document.getElementsByClassName(contentsRef.current.className)[0].scrollTop = 0;
 
         })
         .catch((err)=> {
@@ -109,17 +113,14 @@ function Contents(props) {
                                 <div key={index} className='Content-renders'>
                                     <div className='ContentHeader'>
                                         <div className='HeaderLeft'>
-                                            <span style={{marginBottom:"5px", maxWidth:'130px'}}>{item.word}</span>
-                                            <div className="AudioBtn">
-                                                <div className='Effects' style={{overflow:'hidden', borderRadius: '50%', width:'26px', height: '26px'}}>
-                                                    <Ripples color={'rgba(0,0,0, 0.15)'}>
-                                                        <div onClick={()=>{ setAudioState((prev)=>!prev)}} className="PlayPausePadding">
-                                                            {audioState ? <Play/> : <Pause width="28"/>}
-                                                        </div>
-                                                    </Ripples>
-                                                </div>
-                                                <SoundWave/>
-                                            </div>
+                                            <span style={{marginBottom:"5px", maxWidth:'200px'}}>{item.word}</span>
+                                            {
+                                                audioBtn === false && (
+                                                    (item.word.toLowerCase() === textCon.toLowerCase() || item.word.toLowerCase() === searchedText.toLowerCase()) && (
+                                                        <AudioBtn/>
+                                                    )
+                                                )
+                                            }
                                         </div>
                                         <div className='HeaderRight'>
                                             <div className="ThumbsPadding">

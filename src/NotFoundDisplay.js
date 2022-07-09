@@ -1,7 +1,7 @@
 import React from 'react';
 import './NotFoundDisplay.css';
 import {ReactComponent as Done} from './Assets/Done.svg';
-import {Text} from './Components/SearchBar';
+import {searchedText} from './Components/SearchBar';
 
 function NotFoundDisplay(props) {
     return (
@@ -9,7 +9,7 @@ function NotFoundDisplay(props) {
             <div className='NotFoundDisplayContent'>
                 <Done width="270"/>
                 <div className='NotFoundDisplayText'>
-                    <h1>Sorry, we couldn't find: <span style={{color: '#8B3DFF'}}>{Text}</span></h1>
+                    <h1>Sorry, we couldn't find: <span style={{color: '#8B3DFF'}}>{searchedText}</span></h1>
                     <p>There are no definitions for this word. Be the first to define it! </p>  
                 </div>  
             </div>

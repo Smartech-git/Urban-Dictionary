@@ -4,6 +4,7 @@ import SearchBar from './Components/SearchBar';
 import Content from './Components/Content';
 import NetworkErrorDisplay from './NetworkErrorDisplay';
 import { useStateValue } from './StateProvider';
+import HomeInfo from './HomeInfo';
 import LoadingDisplay from './LoadingDisplay';
 
 function Home(props) {
@@ -13,16 +14,23 @@ function Home(props) {
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh'}}>
             <Header/>
             <SearchBar/>
-            {
-                state.wordContents === 'Network Error'|'timeout exceeded' && state.loading === false ? (
-                   <NetworkErrorDisplay/> 
-                ) : (
+            {   
+                state.wordContents === 'Default state' ? (
                     state.loading ? (
                         <LoadingDisplay/>
                     ) : (
-                        <Content/>
+                        <HomeInfo/>
                     )
-                          
+                ) : (
+                    state.wordContents === 'Network Error'|'timeout exceeded' && state.loading === false ? (
+                        <NetworkErrorDisplay/> 
+                    ) : (
+                        state.loading ? (
+                            <LoadingDisplay/>
+                        ) : (
+                            <Content/>
+                        )          
+                    )
                 )
             }
         </div>
