@@ -7,8 +7,8 @@ import { getWordContents} from '../APIs';
 import {useStateValue} from '../StateProvider';
 import {actionTypes} from '../Reducer'
 
-export let searchedText;
-export let textValue;
+export let searchedText; // imported in Content.js and NotFoundDisplay.js
+export let textValue; // imported in Content.js
 
 function SearchBar(props) {
 
@@ -90,11 +90,11 @@ function SearchBar(props) {
                 <WordLogo width="24px"/>
             </div>
             <input className='SearchInput' onKeyPress={enterKeyPressed} onChange={(e)=> setValue(e.target.value)} value={value} placeholder="Type any word here..."  spellCheck='false' type="text"/>
-            <div style={{borderRadius: 50, overflow: "hidden", margin:"0 5px 0 12px"}}>
+            <div className='RippleContainer'>
                 <Ripples color={'rgba(0,0,0, 0.15)'}>
                     <div onClick={search} className='SearchButton'>
                         <TextSearch width="22px"/>
-                        <span style={{marginBottom: "2px"}}>Search</span>
+                        <span>Search</span>
                     </div>
                 </Ripples>
             </div>

@@ -14,8 +14,8 @@ import { useStateValue } from '../StateProvider';
 import { textValue, searchedText} from './SearchBar';
 import "./Content.css"
 
-export let setAudio;
-let textCon= '';
+export let setAudio; // imported in API.js
+let textCon= '';  // used for conditional audio button rendering
 
 function Contents(props) {
     const [state, dispatch] = useStateValue();
@@ -32,7 +32,6 @@ function Contents(props) {
 
         textValue(text)
         textCon = text
-        console.log(textCon);
 
         const action = {
             type: actionTypes.setLoading,

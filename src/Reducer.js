@@ -1,8 +1,8 @@
 
 export const initialState = {
-   wordContents: 'Default state',
+   wordContents: 'Default test state',
    newContent: false,
-   responseEmpty: false,
+   responseEmpty: true,
    loading: false
 }
 

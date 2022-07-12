@@ -15,15 +15,19 @@ function Home(props) {
             <Header/>
             <SearchBar/>
             {   
-                state.wordContents === 'Default state' ? (
+                state.wordContents === 'Default state'? (
                     state.loading ? (
                         <LoadingDisplay/>
                     ) : (
                         <HomeInfo/>
                     )
                 ) : (
-                    state.wordContents === 'Network Error'|'timeout exceeded' && state.loading === false ? (
-                        <NetworkErrorDisplay/> 
+                    state.wordContents === 'Network Error' || state.wordContents === 'timeout exceeded' ? (
+                        state.loading ? (
+                            <LoadingDisplay/>
+                        ) : (
+                            <NetworkErrorDisplay/>
+                        )
                     ) : (
                         state.loading ? (
                             <LoadingDisplay/>

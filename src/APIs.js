@@ -32,7 +32,8 @@ export const getWordContents = (word) => {
 }
 
 //word phonetics with Howler and Dictionaryapi
-export let sound; // imported in audioBtn.js
+
+export let sound; // imported in AudioBtn.js
 
 export const audio = (word) => {
 
@@ -44,18 +45,17 @@ export const audio = (word) => {
 
     axios.request(options).then(function (response) {
 
-      const result = response.data[0].phonetics.filter(x => x.audio !== ''); // filtering valid audio URLs
-      console.log(result)
+    const result = response.data[0].phonetics.filter(x => x.audio !== ''); // filtering valid audio URLs
 
-      if(result[result.length - 1].audio !== ''){
-        setAudio(false);
-        sound = new Howl({
-          src: [result[result.length - 1].audio],
-          volume: 1,
-        })
-      } else {
-        setAudio(true);
-      }
+    if(result[result.length - 1].audio !== ''){
+      setAudio(false);
+      sound = new Howl({
+        src: [result[result.length - 1].audio],
+        volume: 1,
+      })
+    }else {
+      setAudio(true);
+    }
  
   }).catch(function (error) {
       console.error(error);

@@ -12,8 +12,8 @@ function AudioBtn(props) {
     const [audioState, setAudioState] = useState(true);
 
     const handleAudio = () => {
+        
         sound.play();
-
         sound.on('end', function(){
             setAudioState(true)
         });

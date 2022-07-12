@@ -8,8 +8,9 @@
     display: flex;
     align-items: center;
     width: fit-content;
+    padding: 4px 4px 4px 4px;
     padding-top: 4px;
-    padding-bottom: 5px;
+    padding-bottom: 4px;
     background-color: #F3F5F7;
     border-radius: 50px;
     margin-top: 30px;
@@ -24,9 +25,18 @@
     justify-content: center;
     width: 36px;
     height: 36px;
-    margin: 0 12px 0 5px;
+    margin-right: 12px;
     background-color: white;
     border-radius: 50%;
+}
+.RippleContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 50px;
+    overflow: hidden;
+    height: 36px;
+    margin-left: 12px;
 }
 .SearchButton {
     cursor: pointer;
@@ -45,6 +55,7 @@
     font-family: 'Mochiy Pop One', sans-serif;
     font-size: 15px;
     font-weight: 400;
+    margin-bottom: 2px;
 }
 .SearchInput {
     user-select: none; 
@@ -59,4 +70,60 @@
     appearance: none;
     background-color: #F3F5F7;
     border: none;
+}
+
+@media screen and (max-width: 900px) {
+    .SearchBar {
+        padding: 3px;
+        margin-top: 25px;
+    }
+    .BackgroundPadding {
+        width: 30px;
+        height: 30px;
+    }
+    .BackgroundPadding > svg {
+        width: 20px;
+    }
+    .RippleContainer, .SearchButton {
+        height: 30px;
+    }
+    .SearchButton > span {
+        font-size: 13px;
+    }
+
+    .SearchButton > svg {
+        width: 20px;
+    }
+    .SearchInput {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .SearchBar {
+        padding: 2px 3px 2px 3px;
+        margin-top: 25px;
+    }
+
+    .BackgroundPadding > svg {
+        width: 16px;
+    }
+
+    .BackgroundPadding {
+        width: 28px;
+        height: 28px;
+    }
+
+    .SearchInput {
+        font-size: 10px;
+    }
+    .SearchButton > span {
+        font-size: 10px;
+    }
+    .SearchButton > svg {
+        width: 16px;
+    }
+    .RippleContainer, .SearchButton {
+        height: 26px;
+    }
 }
