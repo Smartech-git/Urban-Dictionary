@@ -116,7 +116,7 @@ function Contents(props) {
                                             <span style={{marginBottom:"5px", maxWidth:'200px'}}>{item.word}</span>
                                             {
                                                 audioBtn && (
-                                                    (item.word.toLowerCase() === textCon.toLowerCase() || item.word.toLowerCase() === searchedText.toLowerCase()) && (
+                                                    (item.word.toLowerCase().replace(/\s+/g, '') === textCon.toLowerCase().replace(/\s+/g, '')  || item.word.toLowerCase().replace(/\s+/g, '')  === searchedText.toLowerCase().replace(/\s+/g, '') ) && (
                                                         <AudioBtn/>
                                                     )
                                                 )

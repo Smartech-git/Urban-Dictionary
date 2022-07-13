@@ -109,6 +109,7 @@
     color: #8B3DFF;
     padding: 0 5px 4px 5px;
     font-size: 16px;
+    user-select: none;
 }
 .ref:hover {
     border-radius: 50px;
@@ -278,18 +279,27 @@
     .Content-renders {
         border-width: 1px;
         border-radius: 15px;
+        width: 93%;
     }
     .ContentHeader {
         padding: 15px 15px 0px 15px;
+        align-items: flex-start;
     }
-
+    
+    .HeaderLeft {
+        width: 210px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
     .HeaderLeft > span {
         font-size: 16px;
+        /* width: 110px; */
     }
 
     .ThumbsPadding {
         height: 22px;
         margin-left: 12px;
+        margin-top: 3.5px;
     }
     .ThumbsPadding svg {
         width: 13px;
@@ -348,10 +358,10 @@
         margin-right: 10px;
     }
     .FooterContent svg {
-        width: 12px;
+        width: 14px;
     }
     .FooterContent > span {
-        font-size: 8px;
+        font-size: 9px;
     }
 
 }

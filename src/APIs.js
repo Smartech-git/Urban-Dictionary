@@ -1,7 +1,23 @@
 import axios from "axios";
 import {Howl} from 'howler';
 import { setAudio } from "./Components/Content";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDviET9nQEE6yyuyATiiYeBxEhWlEpZF7o",
+  authDomain: "urbandictionary-clone.firebaseapp.com",
+  projectId: "urbandictionary-clone",
+  storageBucket: "urbandictionary-clone.appspot.com",
+  messagingSenderId: "809068862605",
+  appId: "1:809068862605:web:149d6ba7e44244de0356c4",
+  measurementId: "G-NQ8Q9Y87VK"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 
 
@@ -29,6 +45,8 @@ export const getWordContents = (word) => {
 
 
 }
+
+
 
 //word phonetics with Howler and Dictionaryapi
 

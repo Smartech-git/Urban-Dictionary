@@ -112,20 +112,20 @@
     }
 
     .BackgroundPadding {
-        width: 28px;
-        height: 28px;
+        width: 29px;
+        height: 29px;
     }
 
     .SearchInput {
-        font-size: 10px;
+        font-size: 11px;
     }
     .SearchButton > span {
-        font-size: 10px;
+        font-size: 11px;
     }
     .SearchButton > svg {
         width: 16px;
     }
     .RippleContainer, .SearchButton {
-        height: 26px;
+        height: 29px;
     }
 }

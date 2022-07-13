@@ -30,7 +30,6 @@ function SearchBar(props) {
             getWordContents(value)
             .then((res) => {
                 console.log(res)
-                // audio(res[0].sound_urls[0])
                 const action = {
                     type: actionTypes.setWordContent,
                     wordContents: res
