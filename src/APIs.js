@@ -23,7 +23,6 @@ export const getWordContents = (word) => {
           res(response.data.list);
           audio(word)
       }).catch(function (error) {
-          console.error(error);
           rej(error)
       });
     })
@@ -48,13 +47,13 @@ export const audio = (word) => {
     const result = response.data[0].phonetics.filter(x => x.audio !== ''); // filtering valid audio URLs
 
     if(result[result.length - 1].audio !== ''){
-      setAudio(false);
+      setAudio(true);
       sound = new Howl({
         src: [result[result.length - 1].audio],
         volume: 1,
       })
     }else {
-      setAudio(true);
+      setAudio(false);
     }
  
   }).catch(function (error) {

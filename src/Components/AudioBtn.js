@@ -23,14 +23,14 @@ function AudioBtn(props) {
 
     return (
         <div className="AudioBtn">
-            <div className='Effects' style={{overflow:'hidden', borderRadius: '50%', width:'26px', height: '26px'}}>
+            <div className='Effects' >
                 <Ripples color={'rgba(0,0,0, 0.15)'}>
                     <div onClick={handleAudio} className="PlayPausePadding">
                         {audioState ? <Play/> : <Pause width="28"/>}
                     </div>
                 </Ripples>
             </div>
-            <SoundWave/>
+            <SoundWave width ="38"/>
         </div>
     );
 }

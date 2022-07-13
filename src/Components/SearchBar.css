@@ -61,8 +61,10 @@
     user-select: none; 
     font-family: 'Mochiy Pop One', sans-serif;
     font-size: 14px;
+    height: 80%;
     font-weight: 400;
     width: 25vw;
+    max-width: 300px;
     color: rgba(0,0,0, 0.8);
     outline: none;
     -webkit-appearance: none;
@@ -99,10 +101,10 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     .SearchBar {
         padding: 2px 3px 2px 3px;
-        margin-top: 25px;
+        margin-top: 20px;
     }
 
     .BackgroundPadding > svg {

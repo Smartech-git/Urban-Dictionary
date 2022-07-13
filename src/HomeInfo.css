@@ -8,7 +8,7 @@
 }
 .HomeInfoContent {
     position: relative;
-    bottom: 30px;
+    /* bottom: 30px; */
     display: flex;
     align-items: center;
     flex-direction: column;

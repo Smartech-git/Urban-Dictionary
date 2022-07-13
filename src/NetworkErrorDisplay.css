@@ -21,6 +21,8 @@
     font-family: 'Mochiy Pop One';
     font-style: normal;
     font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 5px;
     font-size: 18px;
     color: #000000;
 }
@@ -32,4 +34,25 @@
     text-align: center;
     margin: 0;
     color: rgba(0, 0, 0, 0.7);
+}
+
+@media screen and (max-width: 900px) {
+    .NetworkEDInfo h1 {
+        font-size: 16px;
+    }
+    .NetworkEDInfo p {
+        font-size: 12px;
+    }
+}
+
+@media screen  and (max-width: 550px) {
+    .NetworkEDInnerContent svg {
+        width: 220px;
+    }
+    .NetworkEDInfo h1 {
+        font-size: 14px;
+    }
+    .NetworkEDInfo p {
+        font-size: 10px;
+    }
 }

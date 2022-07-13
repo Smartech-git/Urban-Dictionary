@@ -10,7 +10,7 @@
 .Loading-animate{
     display: flex;
     justify-content: space-between;
-    width: 6%;
+    width: 90px;
     position: relative;
     bottom: 50px;
 }
@@ -101,15 +101,19 @@
     }
 }
 
-/* @media  screen and (max-width: 900px) and (orientation: landscape) {
-    .Loading{
-        border-width: 4px;
-        border-radius: 12px;
-        width: 90vw;
-    }
+@media  screen and (max-width: 900px) {
     .point{
-        width: 4px;
-        height: 4px;
-        border-width: 1px;
+        width: 6px;
+        height: 6px;
     }
-} */
+}
+
+@media  screen and (max-width: 550px) {
+    .point{
+        width: 5px;
+        height: 5px;
+    }
+    .Loading-animate {
+        width: 60px;
+    }
+}

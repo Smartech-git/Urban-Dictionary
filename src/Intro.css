@@ -98,3 +98,9 @@
     stroke-dasharray: 200px;
     animation: animate 2s ease 1.4s forwards;
 }
+
+@media screen and (max-width: 900px) {
+    .Intro-content svg {
+        width: 200px;
+    }
+}

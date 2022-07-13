@@ -1,6 +1,6 @@
 .AudioBtn {
-    height: 36px;
-    width: 95px;
+    height: 30px;
+    width: 92px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -8,7 +8,14 @@
     margin-left: 20px;
     background-color: #F3F5F7;
     box-sizing: border-box;
-    padding: 0 10px 0 5px;
+    padding: 0 10px 0 4px;
+}
+
+.Effects {
+    overflow: hidden;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
 }
 .PlayPausePadding {
     -webkit-touch-callout: none;
@@ -25,4 +32,41 @@
     background-color: white;
     border-radius: 50%;
     cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+    .AudioBtn {
+        height: 28px;
+        width: 78px;
+        margin-left: 14px;
+    }
+    .Effects, .PlayPausePadding {
+        width: 20px;
+        height: 20px;
+    }
+    .PlayPausePadding svg {
+        width: 14px;
+    }
+    .AudioBtn > svg {
+        width: 32px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .AudioBtn {
+        height: 22px;
+        width: 60px;
+        margin-left: 10px;
+        padding-right: 8px;
+    }
+    .PlayPausePadding, .Effects {
+        width: 18px;
+        height: 18px;
+    }
+    .PlayPausePadding > svg {
+        width: 10px;
+    }
+    .AudioBtn > svg {
+        width: 25px;
+    }
 }

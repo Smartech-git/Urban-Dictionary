@@ -11,20 +11,19 @@
 
 .Content {
     position: relative;
-    width: 100%;
-    margin: 40px 20px 40px 0;
-    /* padding: 0 10px 0 10px; */
+    width: 99%;
+    margin: 40px 0px 40px 0px;
     overflow-y: scroll;
-    overflow-x: none;
+    overflow-x: hidden;
     flex-grow: 1;
     box-sizing: border-box;
 }
 .Content-renders {
-    margin: 0 0 20px 0;
+    margin-bottom: 20px;
     position: relative;
-    left: 50%;
+    left: 50%; 
     transform: translateX(-50%);
-    width: 55%;
+    width: 800px;
     height: fit-content;
     border: 2.5px solid #E5E5E5;
     border-radius: 30px;
@@ -76,16 +75,21 @@
 }
 .WordDefinition {
     margin-top: 20px;
-    box-sizing: border-box;
-    width: 100%;
     display: flex;
     padding-left: 80px;
+}
+.VerticalLine {
+    width: 2px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
+    height: auto;
 }
 .WordDefinitionContent {
     height: fit-content;
     width: fit-content;
     padding-left: 60px;
     box-sizing: border-box;
+    /* border-left: 2.5px solid rgba(0, 0, 0, 0.55); */
 }
 .WordDefinitionContent p{
     font-family: 'Mochiy Pop One';
@@ -93,7 +97,7 @@
     font-weight: 400;
     font-size: 16px;
     width: 80%;
-    line-height: 24px;
+    line-height: 20px;
     white-space: pre-line;
     white-space: pre-wrap;
     color: rgba(0, 0, 0, 0.8);
@@ -115,18 +119,22 @@
     width: 100%;
     box-sizing: border-box;
     height: fit-content;
-    padding-left: 79.1px ;
+    padding-left: 78px ;
 }
 .Example {
     width: fit-content;
     height: fit-content;
     display: flex;
 }
+.Example > svg:nth-child(1) {
+    display: none;
+} 
 .Example > span {
     margin-left: 10px;
     padding-top: 10px;
     font-family: 'Mochiy Pop One';
     font-style: normal;
+    line-height: 20px;
     font-weight: 400;
     font-size: 18px;
     color: #FFAB00;
@@ -140,9 +148,8 @@
     font-family: 'Mochiy Pop One';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 15px;
     width: 75%;
-    line-height: 24px;
     white-space: pre-line;
     white-space: pre-wrap;
     color: rgba(0, 0, 0, 0.8);
@@ -171,4 +178,189 @@
     font-weight: 400;
     font-size: 13px;;
     color: #000000;
+} 
+
+@media screen and (max-width: 900px) {
+    .Content::-webkit-scrollbar{
+        width: 6px;
+    }
+    .Content-renders {
+        width: 600px;
+        border-radius: 20px;
+        border-width: 2px;
+    }
+    .ContentHeader {
+        padding: 30px 30px 0 30px;
+    }
+    .HeaderLeft > span {
+        font-size: 20px;
+    }
+    .ThumbsPadding {
+        height: 28px;
+        margin-left: 14px;
+        padding: 0 6px 0 6px;
+    }
+    .ThumbsPadding svg {
+        width: 16px;
+    }
+    .ThumbsPadding > span {
+        font-size: 10px;
+        margin-left: 6px;
+    }
+    .WordDefinition {
+        margin-top: 16px;
+        padding-left: 50px;
+    }
+    .VerticalLine {
+        width: 2.48px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 6px;
+        height: auto;
+    }
+    .WordDefinitionContent {
+        padding-left: 40px;
+    }
+    .WordDefinitionContent p {
+        width: 85%;
+    }
+    .WordDefinitionContent p, .WordDefinitionContent span, .ref {
+        font-size: 14px;
+    }
+    .WordExample {
+        padding-left: 49px;
+        margin-top: 2px;
+    }
+    .Example svg {
+        width: 55px;
+    }
+    .Example > svg:nth-child(1) {
+        display: none;
+    }
+    .Example > span {
+        font-size: 16px;
+    }
+    .Examples {
+        padding-left: 80px;
+    }
+    .Examples p {
+        font-size: 13px;
+    }
+    .Footer {
+        margin: 50px 0 20px 30px;
+    }
+    .FooterContent {
+        height: 24px;
+        border-width: 2px;
+        margin-right: 24px;
+    }
+    .FooterContent svg {
+        width: 16px;
+    }
+    .FooterContent > span {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .Content-renders {
+        width: 90%;
+    }
+    
+}
+
+@media screen and (max-width: 550px) {
+    .Content::-webkit-scrollbar{
+        width: 5px;
+    }
+    .Content {
+        margin-top: 20px;
+    }
+    .Content-renders {
+        border-width: 1px;
+        border-radius: 15px;
+    }
+    .ContentHeader {
+        padding: 15px 15px 0px 15px;
+    }
+
+    .HeaderLeft > span {
+        font-size: 16px;
+    }
+
+    .ThumbsPadding {
+        height: 22px;
+        margin-left: 12px;
+    }
+    .ThumbsPadding svg {
+        width: 13px;
+    }
+    .ThumbsPadding > span {
+        font-size: 8px;
+        margin-left: 4px;
+    }
+    .WordDefinition {
+        margin-top: 10px;
+        padding-left: 28px;
+    }
+    .VerticalLine {
+        width: 2px;
+    }
+    .WordDefinitionContent {
+        padding-left: 20px;
+    }
+    .WordDefinitionContent p {
+        width: 90%;
+    }
+    .WordDefinitionContent p, .WordDefinitionContent span, .ref {
+        font-size: 12px;
+    }
+    .WordExample {
+        padding-left: 28px;
+        margin-top: 3px;
+    }
+    .Example > span {
+        font-size: 12px;
+        padding-top: 4px;
+        margin-left: 8px;
+    }
+    .Example > svg:nth-child(1){
+        display: block;
+    }
+    .Example > svg:nth-child(2){
+        display: none;
+    }
+    .Example > svg {
+        width: 28px;
+    }
+    .Examples {
+        padding-left: 45px;
+    }
+    .Examples p {
+        font-size: 11px;
+        width: 80%;
+    }
+    .Footer {
+        margin: 30px 0 10px 10px;
+    }
+    .FooterContent {
+        height: 20px;
+        border-width: 1px;
+        margin-right: 10px;
+    }
+    .FooterContent svg {
+        width: 12px;
+    }
+    .FooterContent > span {
+        font-size: 8px;
+    }
+
+}
+@media screen and (max-width: 350px) {
+    .Footer {
+        flex-direction: column;
+    }
+    .FooterContent {
+        margin-top: 6px;
+        width: fit-content;
+    }
 }

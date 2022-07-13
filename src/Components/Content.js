@@ -1,7 +1,8 @@
 import React, {useEffect, useRef, useState } from 'react';
 import { ReactComponent as ThumbsUp } from '../Assets/ThumbsUp.svg';
 import { ReactComponent as ThumbsDown } from '../Assets/ThumbsDown.svg';
-import { ReactComponent as LineDirect } from '../Assets/LineDirect.svg'
+import { ReactComponent as LineDirect } from '../Assets/LineDirect.svg';
+import { ReactComponent as LineDirectS} from '../Assets/LineDirectS.svg'
 import { ReactComponent as Write } from '../Assets/Write.svg';
 import { ReactComponent as Calender } from '../Assets/Calender.svg';
 import { getWordContents} from '../APIs';
@@ -114,12 +115,13 @@ function Contents(props) {
                                         <div className='HeaderLeft'>
                                             <span style={{marginBottom:"5px", maxWidth:'200px'}}>{item.word}</span>
                                             {
-                                                audioBtn === false && (
+                                                audioBtn && (
                                                     (item.word.toLowerCase() === textCon.toLowerCase() || item.word.toLowerCase() === searchedText.toLowerCase()) && (
                                                         <AudioBtn/>
                                                     )
                                                 )
                                             }
+                                            {/* <AudioBtn/> */}
                                         </div>
                                         <div className='HeaderRight'>
                                             <div className="ThumbsPadding">
@@ -133,7 +135,7 @@ function Contents(props) {
                                         </div>
                                     </div>
                                     <div className='WordDefinition'>
-                                        <div style={{width: '3px', backgroundColor: 'rgba(0,0,0, 0.6)', borderRadius: '6px', height: 'auto'}}></div>
+                                        <div className='VerticalLine'></div>
                                         <div className='WordDefinitionContent'>
                                             <p>{ModifyText(item.definition)}</p>
                                         </div>
@@ -142,6 +144,7 @@ function Contents(props) {
                                         item.example && (
                                             <div className='WordExample'>
                                                 <div className='Example'>
+                                                    <LineDirectS/>
                                                     <LineDirect width="70" height="30"/>
                                                     <span>Example</span>
                                                 </div>
