@@ -66,7 +66,7 @@ function Contents(props) {
         let modifiedText;
 
         //Customize parts of speech texts
-        modifiedText = reactStringReplace(text, /((?<=\().*(?=\)))/g, (match, i) => (
+        modifiedText = reactStringReplace(text, /((?<=\().*?(?=\)))/g, (match, i) => (
           <span  key={i+ match} style={{ color: 'black' }}>{match}</span>
         ))
 
