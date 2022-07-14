@@ -9,6 +9,25 @@
     background-color: #F3F5F7;
     box-sizing: border-box;
     padding: 0 10px 0 4px;
+    animation: bounce 0.7s ease-in forwards;
+}
+
+@keyframes bounce {
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: scale(1.1);
+    }
+    50%{
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .Effects {
