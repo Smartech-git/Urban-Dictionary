@@ -26,7 +26,7 @@
     width: fit-content;
     padding: 4px 4px 4px 4px;;
     background-color: #F3F5F7;
-    border-radius: 50px;
+    border-radius: 60px;
     margin: 0 40px 0 40px;
 }
 
@@ -58,7 +58,7 @@
 }
 .SearchRipple {
     border-radius: 50px;
-    width: fit-content;
+    height: 36px;
     overflow: hidden;
 }
 .SearchButton {
@@ -116,7 +116,7 @@
     .BackgroundPadding > svg {
         width: 20px;
     }
-    .SearchButton {
+    .SearchButton, .SearchRipple {
         height: 30px;
     }
     .SearchButton > span {
@@ -136,8 +136,8 @@
         margin-top: 20px;
     }
     .SearchBar {
-        padding: 2px 2px 2px 3px;
-        margin: 0 10px 0 10px;
+        padding: 2px 2px 2px 2px;
+        margin: 0 20px 0 20px;
     }
 
     .ArrowleftPadding > svg, .ArrowrightPadding > svg {
@@ -161,7 +161,7 @@
     .SearchButton > svg {
         width: 16px;
     }
-    .SearchButton {
+    .SearchButton, .SearchRipple {
         height: 29px;
     }
 }
@@ -171,6 +171,6 @@
         width: 18vw
     }
     .SearchBar {
-        margin: 0 5px 0 5px
+        margin: 0 10px 0 10px
     }
 }
