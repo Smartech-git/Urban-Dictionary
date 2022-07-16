@@ -1,3 +1,19 @@
+.SearchBarContainer {
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+}
+.ArrowleftPadding, .ArrowrightPadding {
+    background-color: #F3F5F7;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 .SearchBar {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -8,12 +24,10 @@
     display: flex;
     align-items: center;
     width: fit-content;
-    padding: 4px 4px 4px 4px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding: 4px 4px 4px 4px;;
     background-color: #F3F5F7;
     border-radius: 50px;
-    margin-top: 30px;
+    margin: 0 40px 0 40px;
 }
 
 ::placeholder{
@@ -25,18 +39,27 @@
     justify-content: center;
     width: 36px;
     height: 36px;
-    margin-right: 12px;
     background-color: white;
     border-radius: 50%;
 }
-.RippleContainer {
-    display: flex;
-    align-items: center;
-    position: relative;
-    border-radius: 50px;
+
+.ArrowRipple {
     overflow: hidden;
-    height: 36px;
-    margin-left: 12px;
+    border-radius: 50%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+.false {
+    opacity: 0.5;
+}
+.SearchRipple {
+    border-radius: 50px;
+    width: fit-content;
+    overflow: hidden;
 }
 .SearchButton {
     cursor: pointer;
@@ -64,6 +87,7 @@
     height: 80%;
     font-weight: 400;
     width: 25vw;
+    margin: 0 12px 0 12px;
     max-width: 300px;
     color: rgba(0,0,0, 0.8);
     outline: none;
@@ -75,18 +99,24 @@
 }
 
 @media screen and (max-width: 900px) {
-    .SearchBar {
-        padding: 3px;
+    .SearchBarContainer {
         margin-top: 25px;
     }
-    .BackgroundPadding {
+    .SearchBar {
+        padding: 3px;
+        margin: 0 20px 0 20px;
+    }
+    .BackgroundPadding, .ArrowleftPadding, .ArrowrightPadding {
         width: 30px;
         height: 30px;
+    }
+    .ArrowleftPadding > svg, .ArrowrightPadding > svg {
+        width: 14px;
     }
     .BackgroundPadding > svg {
         width: 20px;
     }
-    .RippleContainer, .SearchButton {
+    .SearchButton {
         height: 30px;
     }
     .SearchButton > span {
@@ -102,16 +132,22 @@
 }
 
 @media screen and (max-width: 550px) {
-    .SearchBar {
-        padding: 2px 2px 2px 3px;
+    .SearchBarContainer {
         margin-top: 20px;
     }
+    .SearchBar {
+        padding: 2px 2px 2px 3px;
+        margin: 0 10px 0 10px;
+    }
 
+    .ArrowleftPadding > svg, .ArrowrightPadding > svg {
+        width: 12px;
+    }
     .BackgroundPadding > svg {
         width: 16px;
     }
 
-    .BackgroundPadding {
+    .BackgroundPadding, .ArrowleftPadding, .ArrowrightPadding {
         width: 29px;
         height: 29px;
     }
@@ -125,7 +161,16 @@
     .SearchButton > svg {
         width: 16px;
     }
-    .RippleContainer, .SearchButton {
+    .SearchButton {
         height: 29px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .SearchInput {
+        width: 18vw
+    }
+    .SearchBar {
+        margin: 0 5px 0 5px
     }
 }

@@ -12,7 +12,7 @@ import AudioBtn from './AudioBtn';
 import { actionTypes } from '../Reducer';
 import reactStringReplace from 'react-string-replace';
 import { useStateValue } from '../StateProvider';
-import { textValue, searchedText} from './SearchBar';
+import { textValue, searchedText, searchedWordArray, leftArrowSet,countSet} from './SearchBar';
 import "./Content.css"
 
 export let setAudio; // imported in API.js
@@ -28,11 +28,23 @@ function Contents(props) {
     useEffect(()=> { document.getElementsByClassName(contentsRef.current.className)[0].scrollTop = 0;
     },[state.newContent]);
 
+    const addtoHistory = (word) => {
+        if(searchedWordArray.length > 0 ){
+            if(searchedWordArray[searchedWordArray.length - 1].replace(/\s+/g, '') !== word.replace(/\s+/g, '')){
+                searchedWordArray.push(word);
+                countSet()
+            }
+        } else {
+            searchedWordArray.push(word);
+        }
+    
+    }
 
     const getWordMeaning = (text) => {
-
         textValue(text)
         textCon = text
+        leftArrowSet(true)
+        addtoHistory(text)
 
         const action = {
             type: actionTypes.setLoading,
@@ -65,17 +77,17 @@ function Contents(props) {
     const ModifyText = (text) => {
         let modifiedText;
 
-        //Customize parts of speech texts
-        modifiedText = reactStringReplace(text, /((?<=\().*?(?=\)))/g, (match, i) => (
-          <span  key={i+ match} style={{ color: 'black' }}>{match}</span>
-        ))
-
         //urban dictionary word meaning references
-        modifiedText = reactStringReplace(modifiedText, /((?<=\[).*?(?=\]))/g, (match, i) => (
+        modifiedText = reactStringReplace(text, /((?<=\[).*?(?=\]))/g, (match, i) => (
             <span className='ref' onClick={() => getWordMeaning(match)} key={i+match} style={{
                 cursor: 'pointer',
             }}>{match}</span>
           ));
+
+        //highlighting bracketed words
+        modifiedText = reactStringReplace(modifiedText, /((?<=\().*?(?=\)))/g, (match, i) => (
+        <span  key={i+ match} style={{ color: 'black' }}>{match}</span>
+        ))
         
         //removing the square brackets around word references 
         modifiedText = reactStringReplace(modifiedText, /(\[|\])/g, (match, i) =>(''));
@@ -121,7 +133,6 @@ function Contents(props) {
                                                     )
                                                 )
                                             }
-                                            {/* <AudioBtn/> */}
                                         </div>
                                         <div className='HeaderRight'>
                                             <div className="ThumbsPadding">

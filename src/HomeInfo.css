@@ -5,10 +5,10 @@
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
 }
 .HomeInfoContent {
-    position: relative;
-    /* bottom: 30px; */
     display: flex;
     align-items: center;
     flex-direction: column;
