@@ -30,6 +30,10 @@ function SearchBar(props) {
     textValue = setValue;
     leftArrowSet = setLeftArrowActive;
 
+    if(index === searchedWordArray.length - 1 && rightArrowActive === true){
+        setRightArrowActive(false)
+    }
+
     const historyNavAPICall = (param) => {
         if(state.loading === false){
             const action = {
@@ -100,7 +104,7 @@ function SearchBar(props) {
         if(value){
             searchedText = value;
             if(leftArrowActive === false){
-                searchedWordArray.length > 0 && setLeftArrowActive(true)
+                searchedWordArray.length === 1 && setLeftArrowActive(true)
             }
             console.log(searchedWordArray)
 
@@ -136,7 +140,7 @@ function SearchBar(props) {
         if (event.key === 'Enter' && value) {
             searchedText = value;
             if(leftArrowActive === false){
-                searchedWordArray.length > 0 && setLeftArrowActive(true)
+                searchedWordArray.length === 1 && setLeftArrowActive(true)
             }
 
             const action = {
