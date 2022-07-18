@@ -1,5 +1,5 @@
 .AudioBtn {
-    height: 30px;
+    height: 35px;
     width: 92px;
     display: flex;
     align-items: center;
@@ -8,7 +8,7 @@
     margin-left: 20px;
     background-color: #F3F5F7;
     box-sizing: border-box;
-    padding: 0 10px 0 4px;
+    padding: 0px 10px 0px 5px;
     animation: bounce 0.7s ease-in forwards;
 }
 
@@ -28,6 +28,10 @@
     100% {
         transform: scale(1);
     }
+}
+.AudioBtn > img {
+    width: 44px;
+    background-repeat: no-repeat;
 }
 
 .Effects {

@@ -30,146 +30,91 @@ function SearchBar(props) {
     textValue = setValue;
     leftArrowSet = setLeftArrowActive;
 
+
     if(index === searchedWordArray.length - 1 && rightArrowActive === true){
         setRightArrowActive(false)
     }
-
-    const historyNavAPICall = (param) => {
-        if(state.loading === false){
-            const action = {
-                type: actionTypes.setLoading,
-                loading: true
-            }
-            dispatch(action); 
     
-            getWordContents(param)
-            .then((res) => {
-                const action = {
-                    type: actionTypes.setWordContent,
-                    wordContents: res
-                }  
-                dispatch(action);
-            })
-            .catch((err)=> {
-                const action = {
-                    type: actionTypes.setWordContent,
-                    wordContents: err.message
-                }   
-                dispatch(action);
-                console.log(err.message)
-            })
+    const addtoHistory = (word) => {
+        if(searchedWordArray.length > 0 && value){
+            if(searchedWordArray[searchedWordArray.length - 1].replace(/\s+/g, '') !== word.replace(/\s+/g, '')){
+                searchedWordArray.push(word);
+                console.log(searchedWordArray.length)
+                if(leftArrowActive === false){
+                    searchedWordArray.length >= 2 && setLeftArrowActive(true)
+                }
+                countSet()
+            }
+        } else {
+            searchedWordArray.push(word);
         }
+            
     }
 
-    const handleHistoryNav = (active, setActive, count, setCount) => {
+    const handleAPICall = (param, addtoHistoryBool) => {
+        const action = {
+            type: actionTypes.setLoading,
+            loading: true
+        }
+        dispatch(action); 
+
+        getWordContents(param)
+        .then((res) => {
+            if(addtoHistoryBool && res.length !== 0){
+                addtoHistory(value)
+            }
+            const action = {
+                type: actionTypes.setWordContent,
+                wordContents: res
+            }  
+            dispatch(action);
+        })
+        .catch((err)=> {
+            const action = {
+                type: actionTypes.setWordContent,
+                wordContents: err.message
+            }   
+            dispatch(action);
+            console.log(err.message)
+        })
+    }
+
+    const handleHistoryNav = (active, count) => {
 
         if(active && state.loading === false){
             count();
 
             searchedText = searchedWordArray[index];
             setValue(searchedWordArray[index]);
-            historyNavAPICall(searchedWordArray[index]);
+            handleAPICall(searchedWordArray[index], false);
 
-            if(index === 0){
-                index = 0;
-                setActive(false)
-            }
-
-            if(index === (searchedWordArray.length - 1)){
-                setCount()
-                setActive(false)
-            }
-
-            if(searchedWordArray.length > 1){
+            if(index > 0){
                 leftArrowActive === false && setLeftArrowActive(true)
+            }else{
+                setLeftArrowActive(false)
             }
+
             if(index < (searchedWordArray.length - 1)){
                 rightArrowActive === false && setRightArrowActive(true)
+            }else{
+                setRightArrowActive(false)
             }
         }
     }
 
-    const addtoHistory = (word) => {
-        if(searchedWordArray.length > 0 && value){
-            if(searchedWordArray[searchedWordArray.length - 1].replace(/\s+/g, '') !== word.replace(/\s+/g, '')){
-                searchedWordArray.push(word);
-                countSet()
-            }
-        } else {
-            searchedWordArray.push(word);
-        }
-    }
+   
 
     const search = () => {
         if(value){
             searchedText = value;
-            if(leftArrowActive === false){
-                searchedWordArray.length === 1 && setLeftArrowActive(true)
-            }
-            console.log(searchedWordArray)
-
-            const action = {
-                type: actionTypes.setLoading,
-                loading: true
-            }
-            dispatch(action); 
-
-            getWordContents(value)
-            .then((res) => {
-                res.length !== 0 && addtoHistory(value);
-                const action = {
-                    type: actionTypes.setWordContent,
-                    wordContents: res
-                }  
-                dispatch(action);
-            })
-            .catch((err)=> {
-                const action = {
-                    type: actionTypes.setWordContent,
-                    wordContents: err.message
-                }   
-                dispatch(action);
-                console.log(err.message)
-            })  
-        }
-        
+            handleAPICall(value, true)
+        }   
     }
 
     const enterKeyPressed = event => {
-
-        if (event.key === 'Enter' && value) {
+        if ( event.key === 'Enter' && value) {
             searchedText = value;
-            if(leftArrowActive === false){
-                searchedWordArray.length === 1 && setLeftArrowActive(true)
-            }
-
-            const action = {
-                type: actionTypes.setLoading,
-                loading: true
-            }
-            dispatch(action);
-
-            getWordContents(value)
-            .then((res) => {
-                res.length !== 0 && addtoHistory(value);
-                console.log(searchedWordArray)
-                const action = {
-                    type: actionTypes.setWordContent,
-                    wordContents: res
-                }   
-                dispatch(action);
-
-            })
-            .catch((err)=> {
-
-                const action = {
-                    type: actionTypes.setWordContent,
-                    wordContents: err.message
-                }   
-                dispatch(action);
-                console.log(err.message)
-                
-            })
+            handleAPICall(value, true)
         }
      }
 
@@ -178,7 +123,7 @@ function SearchBar(props) {
             <div className="SearchBarContainer">
                 <div className={`ArrowRipple ${leftArrowActive}`}>
                     <Ripples color={'rgba(0,0,0, 0.15)'}>
-                        <div className="ArrowleftPadding" onClick={() =>{handleHistoryNav(leftArrowActive, setLeftArrowActive, countBackwards)}}>
+                        <div className="ArrowleftPadding" onClick={() =>{handleHistoryNav(leftArrowActive, countBackwards)}}>
                             <ArrowLeft width ='18'/>
                         </div>
                     </Ripples>
@@ -199,7 +144,7 @@ function SearchBar(props) {
                 </div>
                 <div className={`ArrowRipple ${rightArrowActive}`}>
                     <Ripples>
-                        <div className='ArrowrightPadding' onClick={() => {handleHistoryNav(rightArrowActive, setRightArrowActive, countForwards, countSet)}}>
+                        <div className='ArrowrightPadding' onClick={() => {handleHistoryNav(rightArrowActive, countForwards)}}>
                             <ArrowRight width="18"/>
                         </div>
                     </Ripples>

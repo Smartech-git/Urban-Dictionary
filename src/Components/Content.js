@@ -29,15 +29,10 @@ function Contents(props) {
     },[state.newContent]);
 
     const addtoHistory = (word) => {
-        if(searchedWordArray.length > 0 ){
-            if(searchedWordArray[searchedWordArray.length - 1].replace(/\s+/g, '') !== word.replace(/\s+/g, '')){
-                searchedWordArray.push(word);
-                countSet()
-            }
-        } else {
+        if(searchedWordArray[searchedWordArray.length - 1].replace(/\s+/g, '') !== word.replace(/\s+/g, '')){
             searchedWordArray.push(word);
-        }
-    
+            countSet()
+        } 
     }
 
     const getWordMeaning = (text) => {

@@ -3,6 +3,7 @@ import './AudioBtn.css'
 import { ReactComponent as SoundWave } from '../Assets/SoundWave.svg';
 import { ReactComponent as Play} from '../Assets/Play.svg';
 import { ReactComponent as Pause} from '../Assets/Pause.svg';
+import SoundWaveGif from '../Assets/SoundWave.gif'
 import { sound } from '../APIs';
 import Ripples from 'react-ripples';
 
@@ -30,7 +31,8 @@ function AudioBtn(props) {
                     </div>
                 </Ripples>
             </div>
-            <SoundWave width ="38"/>
+            {/* <SoundWave width ="38"/> */}
+            <img src={SoundWaveGif} alt = 'SoundWaveGifAnimation'/>
         </div>
     );
 }
