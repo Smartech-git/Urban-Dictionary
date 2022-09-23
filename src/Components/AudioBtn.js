@@ -7,19 +7,17 @@ import SoundWaveGif from '../Assets/SoundWave.gif'
 import { sound } from '../APIs';
 import Ripples from 'react-ripples';
 
-
 function AudioBtn(props) {
-
     const [audioState, setAudioState] = useState(true);
 
     const handleAudio = () => {
-        
+        setAudioState(false) 
         sound.play();
         sound.on('end', function(){
             setAudioState(true)
         });
 
-        setAudioState(false) 
+        
     }
 
     return (
@@ -31,8 +29,9 @@ function AudioBtn(props) {
                     </div>
                 </Ripples>
             </div>
-            {/* <SoundWave width ="38"/> */}
-            <img src={SoundWaveGif} alt = 'SoundWaveGifAnimation'/>
+            <img style={{ opacity: !audioState ? 1: 0}} src={SoundWaveGif} alt = 'SoundWaveGifAnimation'/> 
+            <SoundWave style={{opacity: audioState ? 1 : 0}}/>
+            
         </div>
     );
 }

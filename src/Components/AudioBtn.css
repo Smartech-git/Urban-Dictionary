@@ -29,9 +29,18 @@
         transform: scale(1);
     }
 }
+
+.AudioBtn > svg {
+    position: absolute;
+    right: 10px;
+    margin-right: 6px;
+}
 .AudioBtn > img {
-    width: 44px;
-    background-repeat: no-repeat;
+    position: absolute;
+    right: 10px;
+    height: 17px;
+    width: 32px;
+    margin-right: 4px;
 }
 
 .Effects {
@@ -71,7 +80,12 @@
         width: 14px;
     }
     .AudioBtn > svg {
-        width: 32px;
+        width: 24px;
+    }
+    .AudioBtn > img {
+        height: 17px;
+        width: 24px;
+        margin-right: 4px;
     }
 }
 
@@ -90,6 +104,12 @@
         width: 10px;
     }
     .AudioBtn > svg {
-        width: 25px;
+        width: 20px;
+        margin-right: 2px;
+    }
+    .AudioBtn > img {
+        height: 14px;
+        width: 20px;
+        margin-right: 2px;
     }
 }
