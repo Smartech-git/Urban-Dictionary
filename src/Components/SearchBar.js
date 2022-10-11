@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './SearchBar.css';
 import {ReactComponent as WordLogo} from '../Assets/Microsoft-word-logo.svg';
 import {ReactComponent as TextSearch} from '../Assets/Text-search.svg';
@@ -26,9 +26,11 @@ function SearchBar(props) {
     const [value, setValue] = useState('');
     const [leftArrowActive, setLeftArrowActive] = useState(false);
     const [rightArrowActive, setRightArrowActive] = useState(false);
-
-    textValue = setValue;
-    leftArrowSet = setLeftArrowActive;
+    
+    useEffect(() => {
+         textValue = setValue;
+         leftArrowSet = setLeftArrowActive;
+    }, [])
 
 
     if(index === searchedWordArray.length - 1 && rightArrowActive === true){
