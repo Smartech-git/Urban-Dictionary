@@ -21,7 +21,7 @@ function Intro() {
         dispatch(action);
 
         let ID = setTimeout(()=>{
-            //navigate('Home')
+            navigate('Home')
         }, 3000)
 
         return(()=> {
