@@ -161,4 +161,16 @@
     .Intro-Content svg {
         width: 200px;
     }
+
+    .Intro-Content_logo > img {
+        width: 50px; 
+    }
+
+    .Intro-Content_text > span {
+        font-size: 14px;
+    }
+
+    .Intro-Content_text > p {
+        font-size: 15px ;
+    }
 }
