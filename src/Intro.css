@@ -4,8 +4,66 @@
     height: 100vh;
     width: 100vw;
     display: flex;
-    align-items: center;
     justify-content: center;
+    padding-top: 40vh;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.Intro-Content{
+    height: '100%';
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Intro-Content_logo {
+    animation: Intro-Content_logoFadeIn 0.8s ease 0.3s forwards;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+@keyframes Intro-Content_logoFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.Intro-Content_logo > img {
+    width: 70px;
+    height: fit-content;  
+}
+
+.Intro-Content_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Intro-Content_text > span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.Intro-Content_text > p {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: #8B3DFF;
+    margin-top: 0;
 }
 
 @keyframes animate {
@@ -14,93 +72,93 @@
     }
 }
 
-.Intro-content > svg path:nth-child(2) {
+.Intro-Content > svg path:nth-child(2) {
     stroke-dashoffset: 250px;
     stroke-dasharray: 250px;
     animation: animate 2.5s ease forwards;
 }
-.Intro-content > svg path:nth-child(3) {
+.Intro-Content > svg path:nth-child(3) {
     stroke-dashoffset: 100px;
     stroke-dasharray: 100px;
     animation: animate 2s ease  0.1s forwards;
     
 }
-.Intro-content > svg path:nth-child(4) {
+.Intro-Content > svg path:nth-child(4) {
     stroke-dashoffset: 100px;
     stroke-dasharray: 100px;
     animation: animate 2s ease 0.2s forwards;
 }
-.Intro-content > svg path:nth-child(5) {
+.Intro-Content > svg path:nth-child(5) {
     stroke-dashoffset: 100px;
     stroke-dasharray: 100px;
     animation: animate 1.5s ease 0.3s forwards;
 }
-.Intro-content > svg path:nth-child(6) {
+.Intro-Content > svg path:nth-child(6) {
     stroke-dashoffset: 100px;
     stroke-dasharray: 100px;
     animation: animate 2s ease 0.4s forwards;
     
 }
-.Intro-content > svg path:nth-child(7) {
+.Intro-Content > svg path:nth-child(7) {
     stroke-dashoffset: 250px;
     stroke-dasharray: 250px;
     animation: animate 2.5s ease 0.5s forwards;  
 }
-.Intro-content > svg path:nth-child(8) {
+.Intro-Content > svg path:nth-child(8) {
     stroke-dashoffset: 200px;
     stroke-dasharray: 200px;
     animation: animate 2s ease 0.6s forwards;
 }
-.Intro-content > svg path:nth-child(9) {
+.Intro-Content > svg path:nth-child(9) {
     stroke-dashoffset: 200px;
     stroke-dasharray: 200px;
     animation: animate 2s ease 0.7s forwards;
     
 }
-.Intro-content > svg path:nth-child(10) {
+.Intro-Content > svg path:nth-child(10) {
     stroke-dashoffset: 200px;
     stroke-dasharray: 200px;
     animation: animate 2s ease 0.8s forwards;
     
     
 }
-.Intro-content > svg path:nth-child(11) {
+.Intro-Content > svg path:nth-child(11) {
     stroke-dashoffset: 200px;
     stroke-dasharray: 200px;
     animation: animate 2s ease 0.9s forwards;
     
     
 }
-.Intro-content > svg path:nth-child(12) {
+.Intro-Content > svg path:nth-child(12) {
     stroke-dashoffset: 200px;
     stroke-dasharray: 200px;
     animation: animate 2s ease 1s forwards;
     
     
 }
-.Intro-content > svg path:nth-child(13) {
+.Intro-Content > svg path:nth-child(13) {
     stroke-dashoffset: 200px;
     stroke-dasharray: 200px;
     animation: animate 2s ease 1.1s forwards;
 }
-.Intro-content > svg path:nth-child(14) {
+.Intro-Content > svg path:nth-child(14) {
     stroke-dashoffset: 200px;
     stroke-dasharray: 200px;
     animation: animate 2s ease 1.2s forwards;  
 }
-.Intro-content > svg path:nth-child(15) {
+.Intro-Content > svg path:nth-child(15) {
     stroke-dashoffset: 200px;
     stroke-dasharray: 200px;
     animation: animate 2s ease 1.3s forwards;
 }
-.Intro-content > svg path:nth-child(16) {
+.Intro-Content > svg path:nth-child(16) {
     stroke-dashoffset: 200px;
     stroke-dasharray: 200px;
     animation: animate 2s ease 1.4s forwards;
 }
 
 @media screen and (max-width: 900px) {
-    .Intro-content svg {
+    .Intro-Content svg {
         width: 200px;
     }
 }
