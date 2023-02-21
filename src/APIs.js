@@ -79,3 +79,25 @@ export const audio = (word) => {
   });
       
 }
+
+
+export const settings = {
+  theme : 'LIGHT',
+}
+
+if(localStorage.getItem("settings") === null){
+
+  localStorage.setItem("settings", JSON.stringify(settings));
+}
+
+export const setSettings = (param) => {
+  localStorage.setItem("settings", JSON.stringify(param));
+  
+}
+
+
+export const getSettings = () => {
+  let settings = localStorage.getItem('settings')
+  return settings;
+  
+}
