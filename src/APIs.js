@@ -82,7 +82,7 @@ export const audio = (word) => {
 
 
 export const settings = {
-  theme : 'LIGHT',
+  theme : 'light',
 }
 
 if(localStorage.getItem("settings") === null){
@@ -92,12 +92,13 @@ if(localStorage.getItem("settings") === null){
 
 export const setSettings = (param) => {
   localStorage.setItem("settings", JSON.stringify(param));
+  console.log(localStorage.getItem('settings'))
   
 }
 
 
 export const getSettings = () => {
   let settings = localStorage.getItem('settings')
-  return settings;
+  return JSON.parse(settings);
   
 }
