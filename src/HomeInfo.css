@@ -1,3 +1,10 @@
+.IllustrativeSVG-Light > svg > g > path:nth-child(1) {
+    fill: #F3F5F7
+}
+
+.IllustrativeSVG-Dark > svg > g > path:nth-child(1) {
+    fill: #C39CFC
+}
 .HomeInfo {
     position: relative;
     width: 100%;
@@ -13,9 +20,16 @@
     align-items: center;
     flex-direction: column;
 }
+
+.Searching-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+}
 .HomeInfoText {
     position: relative;
-    bottom: 50px;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,7 +51,7 @@
     font-size: 14px;
     text-align: center;
     margin: 0;
-    color: rgba(0, 0, 0, 0.7);
+    opacity: 0.7;
     width: 70%;
 }
 
@@ -52,7 +66,7 @@
 
 @media screen  and (max-width: 550px) {
     .HomeInfoContent svg {
-        width: 220px;
+        width: 150px;
     }
     .HomeInfoText h1 {
         font-size: 14px;

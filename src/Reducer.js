@@ -1,10 +1,12 @@
 export const themeHueLight = {
+    base: '#000',
     primary: '#FFF',
     primary_light: '#F3F5F7',
     secondary_light: '#E5E5E5',
 }
 
 export const themeHueDark = {
+    base: '#FFF',
     primary: '#06010F',
     primary_light: '#1F1A27',
     secondary_light: '#C39CFC',
@@ -15,7 +17,7 @@ export const initialState = {
    newContent: false,
    responseEmpty: false,
    loading: false,
-   theme: 'LIGHT',
+   theme: 'Light',
    themeHue: themeHueLight
 }
 
@@ -46,7 +48,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 theme: action.theme,
-                themeHue: action.theme === 'LIGHT' ? themeHueLight : themeHueDark
+                themeHue: action.theme === 'Light' ? themeHueLight : themeHueDark
             };
         
         default: 
