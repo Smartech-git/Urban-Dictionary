@@ -1,12 +1,12 @@
 
 .Intro{
     background-color: white;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     display: flex;
     justify-content: center;
     padding-top: 40vh;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
     box-sizing: border-box;
 }
 
@@ -163,7 +163,7 @@
     }
 
     .Intro-Content_logo > img {
-        width: 50px; 
+        width: 80px; 
     }
 
     .Intro-Content_text > span {

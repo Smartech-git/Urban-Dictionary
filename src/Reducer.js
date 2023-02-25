@@ -7,9 +7,9 @@ export const themeHueLight = {
 
 export const themeHueDark = {
     base: '#FFF',
-    primary: '#06010F',
-    primary_light: '#1F1A27',
-    secondary_light: '#C39CFC',
+    primary: '#1F1B24',
+    primary_light: '#413D45',
+    secondary_light: '#E0CBFE',
 }
 
 export const initialState = {

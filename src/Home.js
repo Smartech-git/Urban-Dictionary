@@ -17,8 +17,6 @@ function Home(props) {
 
     useEffect(() =>{
         let settings = getSettings()
-        console.log(settings)
-        console.log(state)
 
         if(settings.theme === "Auto"){
 

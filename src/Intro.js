@@ -45,7 +45,7 @@ function Intro() {
 
         let ID = setTimeout(()=>{
             navigate('Home')
-        }, 3000)
+        }, 4000)
 
         return(()=> {
             clearTimeout(ID)

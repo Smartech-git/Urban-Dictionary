@@ -30,6 +30,22 @@
     }
 }
 
+.PlayPauseSVG-Light > svg > path {
+    fill: #000
+}
+
+.PlayPauseSVG-Dark > svg > path {
+    fill: #FFF
+}
+
+.SoundWaveSVG-Light > svg  line {
+    stroke: #000
+}
+
+.SoundWaveSVG-Dark > svg  line {
+    stroke: #FFF
+}
+
 .AudioBtn > svg {
     position: absolute;
     right: 10px;
