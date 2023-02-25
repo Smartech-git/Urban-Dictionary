@@ -80,9 +80,8 @@ export const audio = (word) => {
       
 }
 
-
 export const settings = {
-  theme : 'light',
+  theme : 'Light',
 }
 
 if(localStorage.getItem("settings") === null){
