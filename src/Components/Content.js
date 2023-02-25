@@ -22,8 +22,12 @@ function Contents(props) {
     const [state, dispatch] = useStateValue();
     const [audioBtn, setAudioBtn] = useState();
     const contentsRef = useRef();
+
+    useEffect(() => {
+        setAudio = setAudioBtn;
+    }, [])
     
-    setAudio = setAudioBtn;
+   
 
     useEffect(()=> { document.getElementsByClassName(contentsRef.current.className)[0].scrollTop = 0;
     },[state.newContent]);
@@ -107,7 +111,7 @@ function Contents(props) {
 
     }
     return (
-        <div ref={contentsRef} className='Content'>
+        <div ref={contentsRef} className={`Content ScrollBar${state.theme}`}>
             { 
                 state.responseEmpty && state.loading === false ? (
                     <NotFoundDisplay/>

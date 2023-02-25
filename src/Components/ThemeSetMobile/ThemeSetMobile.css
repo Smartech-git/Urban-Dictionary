@@ -1,0 +1,122 @@
+
+.ThemeSetMobile {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    /* bottom: -40px; */
+    box-sizing: border-box;
+    padding: 0 10px 0 10px;
+    display: none;
+    flex-direction: column-reverse;
+    overflow: hidden;
+
+}
+
+.ThemeSetMobileFadeUp {
+    display: flex;
+    z-index: 2;
+}
+
+.ThemeSetMobileFadeDown {
+    display: flex;
+    z-index: 2;
+    opacity: 1;
+    animation: delayTime 0.1s ease 0.4s forwards;
+}
+
+@keyframes delayTime {
+    to {
+        opacity: 0;
+        z-index: -1;
+    }
+    
+}
+
+.ThemeSetMobile-Content {
+    width: 100%;
+    height: 140px;
+    display: flex; 
+    border-radius: 18px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(140px);
+    opacity: 0;
+    margin-bottom: 10vh;
+}
+
+.ThemeSetMobileFadeUp > .ThemeSetMobile-Content {
+    animation: ThemeSetFadeUp 0.4s ease forwards;
+}
+
+@keyframes ThemeSetFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ThemeSetMobileFadeDown > .ThemeSetMobile-Content {
+    animation: ThemeSetFadeDown 0.4s ease forwards;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes ThemeSetFadeDown {
+    to {
+        opacity: 0;
+        transform: translateY(140px);
+    }
+}
+
+.ThemeSetMobile-Content  div {
+    height: 30px;
+    width: 100%;
+    border-radius: 50px;
+    display: flex;
+    padding: 0 10px 0 10px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.ThemeSetMobile-Content  svg {
+    margin-right: 20px;
+}
+.ThemeSetMobile-Content  p {
+    font-family: 'Mochiy Pop One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.ThemeMobile-active-Light{
+    background-color: #FFF;
+}
+.ThemeMobile-active-Dark {
+    background-color: #201D26;
+}
+
+.ThemeMobile-inActive-Light, .ThemeMobile-inActive-Dark {
+    background-color: rgba(225, 225, 225, 0);
+    transition: background-color 0.5s ease;
+}
+
+.ThemeMobile-inActive-Light:hover{
+    background-color:rgba(225, 225, 225, 0.5);
+}
+
+.ThemeMobile-inActive-Dark:hover {
+    background-color:rgba(225, 225, 225, 0.1);
+}
+
+@media screen and (min-width: 550px) {
+    .ThemeSetMobile {
+        display: none;
+    }
+}

@@ -1,9 +1,9 @@
 .SearchBarContainer {
     display: flex;
-    margin-top: 30px;
+    margin-top: 10px;
     align-items: center;
 }
-.ArrowleftPadding, .ArrowrightPadding {
+.ArrowLeftPadding, .ArrowRightPadding {
     background-color: #F3F5F7;
     border-radius: 50%;
     width: 36px;
@@ -30,9 +30,7 @@
     margin: 0 40px 0 40px;
 }
 
-::placeholder{
-    color: rgba(0,0,0, 0.5)
-}
+
 .BackgroundPadding {
     display: flex;
     align-items: center;
@@ -60,6 +58,22 @@
     border-radius: 50px;
     height: 36px;
     overflow: hidden;
+}
+
+.ArrowIcons-Light > svg > path {
+    stroke: #000 ;
+}
+
+.ArrowIcons-Dark > svg > path {
+    stroke: #FFF;
+}
+
+.SearchBarIcons-Light > svg > path{
+    fill: #000;
+}
+
+.SearchBarIcons-Dark > svg > path {
+    fill: #FFF
 }
 .SearchButton {
     cursor: pointer;
@@ -98,9 +112,26 @@
     border: none;
 }
 
+.PlaceHolder-Light::placeholder{
+    color: #000;
+    opacity: 0.8;
+}
+
+.PlaceHolder-Dark::placeholder{
+    color: #FFF;
+    opacity: 0.8;
+}
+
+.PlaceHolder-Dark{
+    color: #FFF;
+}
+.PlaceHolder-Light {
+    color: #000
+}
+
 @media screen and (max-width: 900px) {
     .SearchBarContainer {
-        margin-top: 25px;
+        margin-top: 0px;
     }
     .SearchBar {
         padding: 3px;
@@ -133,7 +164,7 @@
 
 @media screen and (max-width: 550px) {
     .SearchBarContainer {
-        margin-top: 20px;
+        margin-top: 10px;
     }
     .SearchBar {
         padding: 2px 2px 2px 2px;
@@ -143,8 +174,9 @@
     .ArrowleftPadding > svg, .ArrowrightPadding > svg {
         width: 12px;
     }
-    .BackgroundPadding > svg {
+    .BackgroundPadding  {
         width: 16px;
+        display: none;
     }
 
     .BackgroundPadding, .ArrowleftPadding, .ArrowrightPadding {
@@ -154,21 +186,30 @@
 
     .SearchInput {
         font-size: 11px;
+        width: 150px;
+    }
+
+    .SearchRipple {
+        display:flex;
+        align-items: center;
+        justify-content: center;
     }
     .SearchButton > span {
         font-size: 11px;
+        display: none;
     }
     .SearchButton > svg {
         width: 16px;
     }
     .SearchButton, .SearchRipple {
         height: 29px;
+        width: 29px
     }
 }
 
 @media screen and (max-width: 370px) {
     .SearchInput {
-        width: 18vw
+        width: 140px
     }
     .SearchBar {
         margin: 0 10px 0 10px

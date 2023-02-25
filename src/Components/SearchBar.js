@@ -125,28 +125,28 @@ function SearchBar(props) {
             <div className="SearchBarContainer">
                 <div className={`ArrowRipple ${leftArrowActive}`}>
                     <Ripples color={'rgba(0,0,0, 0.15)'}>
-                        <div className="ArrowleftPadding" onClick={() =>{handleHistoryNav(leftArrowActive, countBackwards)}}>
+                        <div style={{backgroundColor: state.themeHue.primary_light}} className={`ArrowLeftPadding ArrowIcons-${state.theme}`} onClick={() =>{handleHistoryNav(leftArrowActive, countBackwards)}}>
                             <ArrowLeft width ='18'/>
                         </div>
                     </Ripples>
                 </div>
-                <div className="SearchBar">
-                    <div className='BackgroundPadding'>
+                <div style={{backgroundColor: state.themeHue.primary_light}}  className="SearchBar">
+                    <div style={{backgroundColor: state.themeHue.primary}} className={`BackgroundPadding SearchBarIcons-${state.theme}`}>
                         <WordLogo width="24px"/>
                     </div>
-                    <input className='SearchInput' onKeyPress={enterKeyPressed} onChange={(e)=> setValue(e.target.value)} value={value} placeholder="Type any word here..."  spellCheck='false' type="text"/>
+                    <input  style={{backgroundColor: state.themeHue.primary_light }}  className={`SearchInput PlaceHolder-${state.theme}`} onKeyPress={enterKeyPressed} onChange={(e)=> setValue(e.target.value)} value={value} placeholder="Type any word here..."  spellCheck='false' type="text"/>
                     <div className='SearchRipple'>
                         <Ripples color={'rgba(0,0,0, 0.15)'}>
-                            <div onClick={search} className='SearchButton'>
+                            <div onClick={search} className={`SearchButton SearchBarIcons-${state.theme}`} style={{backgroundColor: state.themeHue.primary}}>
                                 <TextSearch width="22px"/>
-                                <span>Search</span>
+                                <span style={{color: state.themeHue.base}}>Search</span>
                             </div>
                         </Ripples>
                     </div>
                 </div>
                 <div className={`ArrowRipple ${rightArrowActive}`}>
                     <Ripples>
-                        <div className='ArrowrightPadding' onClick={() => {handleHistoryNav(rightArrowActive, countForwards)}}>
+                        <div style={{backgroundColor: state.themeHue.primary_light}}  className={`ArrowRightPadding ArrowIcons-${state.theme}`} onClick={() => {handleHistoryNav(rightArrowActive, countForwards)}}>
                             <ArrowRight width="18"/>
                         </div>
                     </Ripples>

@@ -29,9 +29,12 @@
     transform: translateY(3px);
 }
 
-/* .ThemeIcon-botton > svg > path {
-    
-} */
+.ThemeIcon-Dark > svg > path {
+    fill: #FFF;
+}
+.ThemeIcon-Light > svg > path {
+    fill: #000;
+}
 
 .ThemeSet-botton > p {
     font-family: 'Mochiy Pop One';
@@ -51,7 +54,7 @@
     position: absolute;
     margin-top: 8px;
     border-radius: 17.5px;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     z-index: 2;
     opacity: 0;
     transform: translateY(-8px);
@@ -96,14 +99,24 @@
     border-radius: 50px;
     cursor: pointer;
 }
+.Theme-active-Light{
+    background-color: #FFF;
+}
+.Theme-active-Dark {
+    background-color: #201D26;
+}
 
-.ThemeSet-dropMenu > .inActive {
+.Theme-inActive-Light, .Theme-inActive-Dark {
     background-color: rgba(225, 225, 225, 0);
     transition: background-color 0.5s ease;
 }
 
-.ThemeSet-dropMenu > .inActive:hover{
-    background-color:rgba(225, 225, 225, 0.5) ;
+.Theme-inActive-Light:hover{
+    background-color:rgba(225, 225, 225, 0.5);
+}
+
+.Theme-inActive-Dark:hover {
+    background-color:rgba(225, 225, 225, 0.1);
 }
 
 .ThemeSet-dropMenu p {
@@ -114,7 +127,6 @@
     display: flex;
     align-items: center;
     text-align: center;
-    color: #000000;
 }
 
 @media  screen and (max-width: 900px) {
@@ -148,8 +160,12 @@
 }
 
 @media  screen and (max-width: 550px) {
+    .ThemeSet {
+        display: none
+    }
      .ThemeSet-botton {
         padding: 0 10px 0 10px;
-        height: 30px
+        height: 30px;
     }
+
 }

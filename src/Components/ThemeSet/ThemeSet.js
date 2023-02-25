@@ -7,11 +7,9 @@ import {ReactComponent as DropDown} from '../../Assets/dropDown.svg'
 import { useStateValue } from '../../StateProvider'
 import { actionTypes } from '../../Reducer'
 import { useThemeDetector } from '../../CustomHooks/useThemeDetector'
-import { getSettings, setSettings } from '../../APIs'
-import { settings } from 'firebase/analytics'
+import { getSettings, setSettings, settings } from '../../APIs'
 
-export default function Themeset() {
-    
+export default function Themeset() {  
     const [state, dispatch] = useStateValue();
     const [showDropDown, setDropDown] = useState("none");
     const [themeValue, setThemeValue] = useState();
@@ -84,27 +82,27 @@ export default function Themeset() {
 
     return (
         <div className='ThemeSet'>
-            <div onClick={handleDropDown} className="ThemeSet-botton">
-                <div className='ThemeIcon-botton'>
+            <div onClick={handleDropDown} className={`ThemeSet-botton ThemeIcon-${state.theme}`} style={{backgroundColor: state.themeHue.primary_light}}>
+                <div className={`ThemeIcon-botton ThemeIcon-${state.theme}`}>
                     {themeValue === 'Auto' && <AutoTheme width="100%" height="fit-contentbn "/>}
                     {themeValue === 'Dark' && <DarkTheme width="100%" height="fit-contentbn "/>}
                     {themeValue === 'Light' && <LightTheme width="100%" height="fit-contentbn "/>}
                 </div>
-                <p>{themeValue}</p>
+                <p style={{color: state.themeHue.base}}>{themeValue}</p>
                 <DropDown/>
             </div>
             <div className={`ThemeSet-dropMenu ${showDropDown === false ? 'dropDownReverseAnimate': ''} ${showDropDown === true ? "dropDownAnimate" : ''}`} style={{backgroundColor: state.themeHue.primary_light}}>
-                <div onClick={() => handleThemeSelect("AUTO")} className={`ThemeAuto active`} style={{backgroundColor: state.themeHue.primary}}>
+                <div onClick={() => handleThemeSelect("AUTO")} className={`Theme-${themeValue === 'Auto'? "active" : "inActive"}-${state.theme} ThemeIcon-${state.theme}`}>
                     <AutoTheme/>
-                    <p>Auto</p>
+                    <p style={{color: state.themeHue.base}}>Auto</p>
                 </div>
-                <div onClick={() => handleThemeSelect("DARK")}  className={`ThemeDark inActive`}>
+                <div onClick={() => handleThemeSelect("DARK")}  className={`Theme-${themeValue === 'Dark'? "active" : "inActive"}-${state.theme} ThemeIcon-${state.theme}`}>
                     <DarkTheme/>
-                    <p>Dark</p>
+                    <p style={{color: state.themeHue.base}}>Dark</p>
                 </div>
-                <div onClick={() => handleThemeSelect("LIGHT")}  className={'ThemeLight inActive'}>
+                <div onClick={() => handleThemeSelect("LIGHT")}  className={`Theme-${themeValue === 'Light'? "active" : "inActive"}-${state.theme} ThemeIcon-${state.theme}`}>
                     <LightTheme/>
-                    <p>Light</p>
+                    <p style={{color: state.themeHue.base}}>Light</p>
                 </div>
             </div>
         </div>
