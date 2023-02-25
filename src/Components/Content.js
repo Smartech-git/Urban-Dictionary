@@ -78,14 +78,14 @@ function Contents(props) {
 
         //urban dictionary word meaning references
         modifiedText = reactStringReplace(text, /((?<=\[).*?(?=\]))/g, (match, i) => (
-            <span className='ref' onClick={() => getWordMeaning(match)} key={i+match} style={{
+            <span className={`ref ref-${state.theme}`} onClick={() => getWordMeaning(match)} key={i+match} style={{
                 cursor: 'pointer',
             }}>{match}</span>
           ));
 
         //highlighting bracketed words
         modifiedText = reactStringReplace(modifiedText, /((?<=\().*?(?=\)))/g, (match, i) => (
-        <span  key={i+ match} style={{ color: 'black' }}>{match}</span>
+        <span  key={i+ match} style={{ color: state.themeHue.base}}>{match}</span>
         ))
         
         //removing the square brackets around word references 
@@ -121,9 +121,9 @@ function Contents(props) {
                     ) : (
                         state.wordContents.map((item, index) => {
                             return(
-                                <div key={index} className='Content-renders'>
+                                <div key={index} className='Content-renders' style={{borderColor: state.theme === 'Light' ? '#E5E5E5' : '#35323A'}}>
                                     <div className='ContentHeader'>
-                                        <div className='HeaderLeft'>
+                                        <div className={`HeaderLeft HeaderLeftSVG-${state.theme}`}>
                                             <span style={{marginBottom:"5px", maxWidth:'200px'}}>{item.word}</span>
                                             {
                                                 audioBtn && (
@@ -134,44 +134,44 @@ function Contents(props) {
                                             }
                                         </div>
                                         <div className='HeaderRight'>
-                                            <div className="ThumbsPadding">
+                                            <div className="ThumbsPadding" style={{backgroundColor: state.themeHue.primary_light}}>
                                                 <ThumbsUp/>
                                                 <span>{item.thumbs_up}</span>
                                             </div>
-                                            <div className="ThumbsPadding">
+                                            <div className="ThumbsPadding" style={{backgroundColor: state.themeHue.primary_light}}>
                                                 <ThumbsDown/>
                                                 <span>{item.thumbs_down}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div className='WordDefinition'>
-                                        <div className='VerticalLine'></div>
+                                        <div className={`VerticalLine VerticalLine-${state.theme}`}></div>
                                         <div className='WordDefinitionContent'>
-                                            <p>{ModifyText(item.definition)}</p>
+                                            <p style={{color: state.themeHue.base}}>{ModifyText(item.definition)}</p>
                                         </div>
                                     </div>
                                     {
                                         item.example && (
                                             <div className='WordExample'>
-                                                <div className='Example'>
+                                                <div className={`Example ExampleSVG-${state.theme}`}>
                                                     <LineDirectS/>
                                                     <LineDirect width="70" height="30"/>
                                                     <span>Example</span>
                                                 </div>
                                                 <div className='Examples'>
-                                                    <p>{ModifyText(item.example)}</p>
+                                                    <p style={{color: state.themeHue.base}}>{ModifyText(item.example)}</p>
                                                 </div>
                                             </div>
                                         )
                                     }
                                     <div className='Footer'>
-                                        <div className='FooterContent'>
+                                        <div className={`FooterContent FooterContentSVG-${state.theme}`} style={{borderColor: state.themeHue.secondary_light}}>
                                             <Write/>
-                                            <span>{item.author}</span>
+                                            <span style={{color: state.themeHue.base}}>{item.author}</span>
                                         </div>
-                                        <div className='FooterContent'>
+                                        <div className={`FooterContent FooterContentSVG-${state.theme}`}style={{borderColor: state.themeHue.secondary_light}}>
                                             <Calender/>
-                                            <span>{ModifyDate(item.written_on)}</span>
+                                            <span style={{color: state.themeHue.base}}>{ModifyDate(item.written_on)}</span>
                                         </div>
                                     </div>
                                 </div>

@@ -90,6 +90,29 @@
     border-radius: 6px;
     height: auto;
 }
+.VerticalLine-Light {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.VerticalLine-Dark {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.ExampleSVG-Light > svg:nth-child(1) path{
+    stroke: rgba(0, 0, 0, 0.6);
+}
+
+.ExampleSVG-Dark > svg:nth-child(1) path{
+    stroke: #fff;
+}
+
+.ExampleSVG-Light > svg:nth-child(2) path{
+    stroke: rgba(0, 0, 0, 0.6);
+}
+
+.ExampleSVG-Dark > svg:nth-child(2) path, .ExampleSVG-Dark > svg:nth-child(2) line {
+    stroke: #fff
+}
+
 .WordDefinitionContent {
     height: fit-content;
     width: fit-content;
@@ -106,7 +129,7 @@
     line-height: 24px;
     white-space: pre-line;
     white-space: pre-wrap;
-    color: rgba(0, 0, 0, 0.8);
+    opacity: 0.85;
 }
 .WordDefinitionContent span {
     font-size: 16px;
@@ -122,11 +145,18 @@
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
+    opacity: 1;
 }
-.ref:hover {
+.ref-Light:hover {
     border-radius: 50px;
     background-color: #E5E5E5;
 }
+
+.ref-Dark:hover {
+    border-radius: 50px;
+    background-color: #fff
+}
+
 .WordExample {
     margin-top: 6px;
     width: 100%;
@@ -166,7 +196,7 @@
     line-height: 24px;
     white-space: pre-line;
     white-space: pre-wrap;
-    color: rgba(0, 0, 0, 0.8);
+    opacity: 0.85;
 }
 
 .Footer {
@@ -184,6 +214,14 @@
     align-items: center;
     margin-right: 30px;
 }
+
+.FooterContentSVG-Light > svg > path {
+    fill: #000
+}
+
+.FooterContentSVG-Dark > svg > path {
+    fill: #FFF
+}
 .FooterContent > span {
     padding-bottom: 2px;
     margin-left: 8px;
@@ -191,7 +229,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 13px;;
-    color: #000000;
+    opacity: 0.85;
 } 
 
 @media screen and (max-width: 900px) {
@@ -227,7 +265,6 @@
     }
     .VerticalLine {
         width: 2.48px;
-        background-color: rgba(0, 0, 0, 0.5);
         border-radius: 6px;
         height: auto;
     }
@@ -239,9 +276,15 @@
         line-height: 23px;
     }
     .ref {
-        background-color: #F3F5F7;
         border-radius: 50px;
         padding: 0 5px 1px 5px;
+    }
+    .ref-Light{
+        background-color: #E5E5E5;
+    }
+
+    .ref-Dark {
+        background-color: #fff;
     }
     .WordDefinitionContent p, .WordDefinitionContent span, .ref {
         font-size: 14px;
@@ -389,6 +432,7 @@
     }
 
 }
+
 @media screen and (max-width: 350px) {
     .Footer {
         flex-direction: column;
