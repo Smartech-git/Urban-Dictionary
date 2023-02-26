@@ -1,4 +1,7 @@
-![Frame 1 (6)](https://user-images.githubusercontent.com/69016682/178848687-a6eeb6e2-45c7-47fb-bca2-cf6564268885.png)
+![Frame 24](https://user-images.githubusercontent.com/69016682/221395681-46c9d35a-0345-4ead-9551-ac1909c03ffb.png)
+![HomeInfo (2)](https://user-images.githubusercontent.com/69016682/221395727-6c7d38a9-c57c-4a0d-9f6b-2e9b9ad41cc7.png)
+![NotFoundDisplay (1)](https://user-images.githubusercontent.com/69016682/221395729-f1f8e930-b139-4e11-a593-10436ef7e43c.png)
+
 
 
 
